@@ -1,0 +1,11 @@
+ol {
+    background: moccasin;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}

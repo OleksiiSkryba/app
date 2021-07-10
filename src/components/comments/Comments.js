@@ -1,24 +1,33 @@
 import {useEffect, useState} from 'react';
-import Comment from '../comment/Comment';
 
-export default function Comments() {
+export default function Comments({item: postId}) {
+    // console.log(postId);
 
     let [comments, setComments] = useState([]);
-
-
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/comments')
+        fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
             .then(value => value.json())
             .then(commentsfromServer => {
                 setComments(commentsfromServer);
             });
     }, []);
-
-    return (
-        <div>
-            {
-                comments.map(comment => <Comment item={comment}/>)
+    let [toggle, setToggle] = useState('hide');
+        return (
+            <div>
+            <button onClick={() => {
+                if (toggle === 'show'){
+                    setToggle('hide')
+                }else if (toggle === 'hide'){
+                    setToggle('show')
+                }
             }
-        </div>
-    );
+            }>Comments</button>
+              <ol className={toggle}>{comments.map((comment, index) =>
+                <li key={index}>{comment.email}
+                    <summary>{comment.name}</summary>
+                    <details>{comment.body}</details>
+                    <hr/>
+                </li>
+            )}</ol>
+        </div>)
 }
