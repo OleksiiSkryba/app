@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-export default axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com',
-    headers: {}
-});
+let options = {
+    baseURL: 'https://jsonplaceholder.typicode.com'
+};
+let axiosInstance = axios.create(options);
+
+const getUsers = () => axiosInstance('/users');
+
+export {getUsers};
