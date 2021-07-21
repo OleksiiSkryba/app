@@ -1,0 +1,11 @@
+ol {
+    background: skyblue;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}

@@ -1,14 +1,14 @@
-import './Posts.css';
+import './UserPosts.css';
 import Comments from '../comments/Comments';
-import {getAllPosts} from "../../services/api";
+import {getUserPosts} from "../../services/api";
 import {useEffect, useState} from 'react';
-export default function Posts(){
+export default function UserPosts({item: id}){
     let [posts, setPosts] = useState([]);
     useEffect(() => {
-        getAllPosts().then(value => {
+        getUserPosts(id).then(value => {
             setPosts([...value.data]);
         });
-    }, []);
+    }, [id]);
     return(<div>{posts &&
             <ol>{posts.map((post, index) =>
                 <li key={index}><br/>
