@@ -10,7 +10,7 @@ export default function Comments({item: postId}) {
             .then(commentsfromServer => {
                 setComments(commentsfromServer);
             });
-    }, []);
+    }, [postId]);
     let [toggle, setToggle] = useState('hide');
         return (
             <div>
