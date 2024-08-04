@@ -1,42 +1,42 @@
-import './App.css';
-import {useState} from 'react';
-import Home from './components/home/Home'
-import Users from './components/users/Users';
+import "./App.css";
+import { useState } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+// import Home from './components/home/Home'
+import Users from "./components/users/Users";
 import User from "./components/user/User";
-import {BrowserRouter as Router,
-        Switch,
-        Route,
-        Link
-       } from 'react-router-dom';
 import Posts from "./components/posts/Posts";
 
 export default function App() {
   let [user, setUser] = useState({});
   return (
-      <Router>
-      <div className={'App'}>
-          <header className={'header'}>
-              <Link to={'/'}><h1>hw3</h1></Link>
-              <Link to={'/users'}>Users</Link>
-              <Link to={'/posts'}>Posts</Link>
-          </header>
+    <Router>
+      <div className={"App"}>
+        <header className={"header"}>
+          <Link to={"/"}>
+            <h1>hw3</h1>
+          </Link>
+          <Link to={"/users"}>Users</Link>
+          <Link to={"/posts"}>Posts</Link>
+        </header>
+        <div className={"aside"}></div>
+        <main className={"main"}></main>
+        <footer className={"footer"}>Footer</footer>
 
-          <Switch>
-          <Route exact path={'/'}><Home/></Route>
-          <Route  path={'/users'}>
-              <Users setUser={setUser}/>
-              <User item={user}/></Route>
-          <Route  path={'/posts'}>
-              <main className={'main'}>
-                  <Posts/>
-              </main>
+        <Switch>
+          <Route exact path={"/"}></Route>
+          <Route path={"/users"}>
+            <Users setUser={setUser} />
+            <User item={user} />
           </Route>
-          </Switch>
+          <Route path={"/posts"}>
+            <main className={"main"}>
+              <Posts />
+            </main>
+          </Route>
+        </Switch>
         {/**/}
         {/*  */}
-         <footer className={'footer'}>Footer</footer>
       </div>
-      </Router>
+    </Router>
   );
 }
-
