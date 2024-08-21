@@ -20,22 +20,23 @@ export default function App() {
         </header>
         <div className={"aside"}></div>
         <main className={"main"}></main>
-        <footer className={"footer"}>Footer</footer>
 
         <Switch>
-          <Route exact path={"/"}></Route>
-          <Route path={"/users"}>
-            <Users setUser={setUser} />
-            <User item={user} />
+          <Route exact path={"/"}>
           </Route>
+          <Route path={"/users"}>
+        <div className={"aside"}>
+            <Users setUser={setUser} />
+            </div><main className={"main"}>
+            <User item={user} /></main></Route>
+
           <Route path={"/posts"}>
             <main className={"main"}>
               <Posts />
             </main>
           </Route>
         </Switch>
-        {/**/}
-        {/*  */}
+        <footer className={"footer"}>Footer</footer>
       </div>
     </Router>
   );

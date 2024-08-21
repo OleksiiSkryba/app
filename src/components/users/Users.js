@@ -12,7 +12,7 @@ export default function Users({setUser}) {
 	}, []);
 
 	return (
-		<div className={'aside'}>
+		<div >
 			{
 				users.map((user, index) =>
 					<button key={index} onClick={()=>{setUser(user)}}>
