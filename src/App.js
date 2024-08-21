@@ -27,8 +27,8 @@ export default function App() {
           <Route path={"/users"}>
         <div className={"aside"}>
             <Users setUser={setUser} />
-            </div><main className={"main"}>
-            <User item={user} /></main></Route>
+            </div>
+            <User className={"main"} item={user} /></Route>
 
           <Route path={"/posts"}>
             <main className={"main"}>
